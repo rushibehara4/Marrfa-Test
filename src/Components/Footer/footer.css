@@ -1,0 +1,134 @@
+.footer-container {
+    padding: 0;margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.30);
+  }
+  
+  .footer-list-container{
+    display: flex;
+    flex-direction: row;
+    margin-right: 50px;
+    margin: 0;padding: 10px;
+  }
+  
+  .footer-list-container li {
+    list-style: none;
+    margin-left: 8px;
+    margin-right: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .footer-list-container li:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-icon {
+    margin-right: 8px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .arrow-button-container {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  /* she share */
+  
+  .share-dropdown-menu {
+    position: absolute;
+    bottom: 0;
+    left: 25vh;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-bottom: 8vh;
+  }
+  
+  .share-dropdown-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .share-dropdown-menu-list li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: white 0.3s;
+  }
+  
+  .share-dropdown-menu-list li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* is Host */
+  
+  .host-dropdown-menu {
+    position: absolute;
+    bottom: 0;
+    left: 40vh;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-bottom: 8vh;
+  }
+  
+  .host-dropdown-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .host-dropdown-menu-list li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: white 0.3s;
+  }
+  
+  .host-dropdown-menu-list li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* privacy */
+  
+  .privacy-dropdown-menu {
+    position: absolute;
+    bottom: 0;
+    left: 57vh;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-bottom: 8vh;
+  }
+  
+  .privacy-dropdown-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .privacy-dropdown-menu-list li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: white 0.3s;
+  }
+  
+  .privacy-dropdown-menu-list li:hover {
+    background-color: #f5f5f5;
+  }

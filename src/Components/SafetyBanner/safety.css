@@ -1,0 +1,77 @@
+.safety-banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 76vh;
+}
+
+
+.safety-banner-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: aquamarine;
+    height: 60vh;
+    background-image: url("vecteezy_vector-banner-place-for-text-a-group-of-beautiful-women-of_.jpg");
+    background-size: cover;
+    width: 90%;
+    padding-right: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.75);
+}
+
+.safety-button {
+    padding: 15px;
+    text-align: center;
+    border-radius: 30px;
+    border: 2px solid black;
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.safety-button:hover {
+    color: white;
+    background-color: black;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+.header-tab-bottom-card {
+    background-color: white;
+    padding: 10px;
+    width: 90vh;
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+    border-radius: 25px;
+    position: absolute;
+    top: 67vh;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.tabs-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.card-icon-bottom {
+    list-style-type: none;
+    color: rgb(255, 149, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.botton-icons {
+    margin-bottom: 15px;
+    height: 30px;
+    width: 30px;
+}

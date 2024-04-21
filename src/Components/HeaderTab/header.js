@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 
-import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 import { RiLoginBoxLine } from "react-icons/ri";
 import { RiLogoutBoxLine } from "react-icons/ri";
 
@@ -58,45 +58,18 @@ class Header extends React.Component {
       isRegisterModelOpen,
       isDropdownOpen,
     } = this.state;
+    console.log(activeTabName)
     return (
       <div>
         <div className="header-container">
           <div className="header-logo-container">
-            <Link className="airbnb-home-link" to="/"><TbBrandAirbnb className="airbnb-logo" /> Womenbnb</Link>
+            <NavLink className="airbnb-home-link" to="/"><TbBrandAirbnb className="airbnb-logo" /> Womenbnb</NavLink>
           </div>
           <ul className="header-tabs-container">
-            <Link to="/"
-              className={`header-tabs ${
-                activeTabName === "Welcome" ? "active" : ""
-              }`}
-              onClick={() => this.onclickTab("Welcome")}
-            >
-              Welcome
-            </Link>
-            <Link to="/safety"
-              className={`header-tabs ${
-                activeTabName === "Safety" ? "active" : ""
-              }`}
-              onClick={() => this.onclickTab("Safety")}
-            >
-              safety
-            </Link>
-            <Link to="/adventure"
-              className={`header-tabs ${
-                activeTabName === "Adventure" ? "active" : ""
-              }`}
-              onClick={() => this.onclickTab("Adventure")}
-            >
-              Adventure
-            </Link>
-            <Link to="/community"
-              className={`header-tabs ${
-                activeTabName === "Community" ? "active" : ""
-              }`}
-              onClick={() => this.onclickTab("Community")}
-            >
-              Community
-            </Link>
+            <NavLink to="/" className="header-tabs">Welcome</NavLink>
+            <NavLink to="/safety" className="header-tabs">Safety</NavLink>
+            <NavLink to="/adventure" className="header-tabs">Adventure</NavLink>
+            <NavLink to="/community" className="header-tabs">Community</NavLink>
           </ul>
           <div className="profile-container">
             <div className="register-login-buttons-container">

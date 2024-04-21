@@ -5,6 +5,9 @@
   align-items: center;
   width: 100%;
   padding: 20px;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
 }
 
 .airbnb-home-link {

@@ -5,12 +5,9 @@ import Swal from "sweetalert2";
 
 import { FaSearch } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { CiGlobe } from "react-icons/ci";
-import { MdCurrencyRupee } from "react-icons/md";
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
 
 import Header from "../HeaderTab/header";
+import Footer from "../Footer/footer";
 
 class Home extends React.Component {
   state = {
@@ -327,10 +324,6 @@ class Home extends React.Component {
       age: "",
       personalStory: "",
     },
-    isArrow: false,
-    isShare: false,
-    isHost: false,
-    isPrivacy: false,
   };
 
   componentDidMount() {
@@ -419,29 +412,36 @@ class Home extends React.Component {
     this.setState({ guestIntrestsVisible: false });
   };
 
-  toggleArrow = () => {
-    this.setState({
-      isArrow: !this.state.isArrow,
-    });
-  };
+  onBookHotel = (city) => {
+    const { cityName, availableDates, perNightCharges } = city;
 
-  toggleSheShare = () => {
-    this.setState((prevState) => ({
-      isShare: !prevState.isShare,
-    }));
-  };
-
-  toggleHost = () => {
-    this.setState((prevState) => ({
-      isHost: !prevState.isHost,
-    }));
-  };
-
-  togglePrivacy = () => {
-    this.setState((prevState) => ({
-      isPrivacy: !prevState.isPrivacy,
-    }));
-  };
+  Swal.fire({
+    title: `${cityName}`,
+    html: `
+      <p>Available Dates: ${availableDates}</p>
+      <p>Night Charge: ${perNightCharges}</p>
+    `,
+    icon: 'info',
+    confirmButtonText: 'Book Now',
+    showCancelButton: true,
+    cancelButtonText: 'Cancel',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: 'Success!',
+        text: 'Booking confirmed!',
+        icon: 'success'
+      });
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire({
+        title: 'Cancelled',
+        text: 'Booking cancelled',
+        icon: 'error'
+      });
+    }
+  });
+  }
 
   render() {
     const {
@@ -453,10 +453,6 @@ class Home extends React.Component {
       searchDestination,
       guestIntrestsVisible,
       formData,
-      isArrow,
-      isShare,
-      isHost,
-      isPrivacy,
     } = this.state;
 
     const filteredCities = cities.filter((city) =>
@@ -600,7 +596,7 @@ class Home extends React.Component {
           <div className="cities-container">
             <ul className="cities-list-container">
               {filteredCities.map((city, index) => (
-                <li key={index} className="city-list-card">
+                <li key={index} className="city-list-card" onClick={() => this.onBookHotel(city)}>
                   <div className="city-image-container">
                     <img
                       src={city.cityImage}
@@ -630,59 +626,7 @@ class Home extends React.Component {
           </div>
         </div>
         <div className="footer-component">
-          <div className="footer-container">
-            <ul className="footer-list-container">
-              <li>&copy; 2024, Womenbnb Inc.</li>
-              <li onClick={this.toggleSheShare}>She Share</li>
-              <li onClick={this.toggleHost}>Become a Host</li>
-              <li onClick={this.togglePrivacy}>Terms & Privacy</li>
-            </ul>
-            <ul className="footer-list-container">
-              <li>
-                <CiGlobe className="footer-icon" /> English (IN)
-              </li>
-              <li>
-                INR <MdCurrencyRupee className="footer-icon" />
-              </li>
-              <li>
-                <button
-                  className="arrow-button-container"
-                  onClick={this.toggleArrow}
-                >
-                  Support & Resource{" "}
-                  {isArrow ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </button>
-              </li>
-            </ul>
-          </div>
-          {isShare && (
-            <div className="share-dropdown-menu">
-              <ul className="share-dropdown-menu-list">
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Follow Us</li>
-                <li>Careers</li>
-              </ul>
-            </div>
-          )}
-          {isHost && (
-            <div className="host-dropdown-menu">
-              <ul className="host-dropdown-menu-list">
-                <li>Hosting Resource</li>
-                <li>Hosting Resposibility</li>
-                <li>Share a Room</li>
-                <li>Pets</li>
-              </ul>
-            </div>
-          )}
-          {isPrivacy && (
-            <div className="privacy-dropdown-menu">
-              <ul className="privacy-dropdown-menu-list">
-                <li>terms & Conditions</li>
-                <li>Privacy & Policy</li>
-              </ul>
-            </div>
-          )}
+          <Footer />
         </div>
       </div>
     );
