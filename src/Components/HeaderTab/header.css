@@ -1,0 +1,284 @@
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.airbnb-home-link {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.airbnb-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.header-tabs-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-tab-button-container {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+}
+
+.header-tabs {
+  list-style-type: none;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
+.header-tabs.active {
+  color: orange;
+  font-weight: bold;
+}
+
+.register-login-buttons-container {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button {
+  height: 30px;
+  width: 90px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.login-button:hover {
+  background-color: #0069d9;
+}
+
+.register-button {
+  height: 30px;
+  width: 90px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+  background-color: #ff9900;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.register-button:hover {
+  background-color: #a86704;
+}
+
+.profile-container {
+  display: flex;
+  position: relative;
+}
+
+.profile-card {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  height: 50px;
+  width: 100px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: white;
+  box-shadow: 0px 0px 25px -2px rgba(0, 0, 0, 0.75);
+}
+
+.profile-card:hover {
+  background-color: whitesmoke;
+}
+
+.profile-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-letter {
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 10px;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.profile-dropdown {
+  position: fixed;
+  top: 20;
+  right: 0;
+  transform: translate(-10%, -55%);
+  z-index: 1001;
+  margin-top: 25vh;
+  width: fit-content;
+}
+
+.dropdown-list-container {
+  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+  border-radius: 12px;
+  padding-right: 10px;
+  padding: 20px;
+  background-color: rgb(253, 255, 255);
+}
+
+.dropdown-list-container li {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+}
+
+.dropdown-list-container li:hover {
+  background-color: rgb(226, 228, 228);
+  border-radius: 20px;
+  padding-left: 15px;
+}
+
+.menu-icon {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+/* .model-content {
+  padding: 20px;
+  box-shadow: 0px 0px 25px -2px rgba(0, 0, 0, 0.75);
+  width: 30vw;
+} */
+
+.close-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: whitesmoke;
+}
+
+.close:hover {
+  color: #000000;
+}
+
+.login-model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-model-content {
+  background-color: rgba(163, 98, 187);
+  border-radius: 10px;
+  width: 50%;
+  padding: 20px;
+}
+
+.register-model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.resgiter-model-content {
+  background-color: orange;
+  border-radius: 10px;
+  width: 50%;
+  padding: 20px;
+}
+
+.login-or-logot {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list-login-buttons {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+.list-login-buttons:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .header-tabs-container {
+    display: none;
+  }
+  .login-model-content {
+    width: 70%;
+  }
+  /* .register-login-buttons-container {
+    display: none;
+  } */
+}
