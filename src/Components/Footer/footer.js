@@ -50,8 +50,8 @@ class Footer extends React.Component {
       <>
         <div className="footer-container">
           <ul className="footer-list-container">
-            <li>&copy; 2024, Womenbnb Inc.</li>
-            <li onClick={this.toggleSheShare}>She Share</li>
+            <li>&copy; 2024, Marrfa</li>
+            <li onClick={this.toggleSheShare}>Share</li>
             <li onClick={this.toggleHost}>Become a Host</li>
             <li onClick={this.togglePrivacy}>Terms & Privacy</li>
           </ul>

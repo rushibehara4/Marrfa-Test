@@ -4,14 +4,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px;
-  /* position: fixed;
-  top: 0;
-  left: 0; */
+  background-color: #0a101c;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .airbnb-home-link {
-  color: red;
+  color: #267e94;
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
@@ -22,9 +21,10 @@
 }
 
 .airbnb-logo {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 70px;
+  height: 60px;
+  margin-right: 5px;
+  margin-left: 10px;
 }
 
 .header-tabs-container {
@@ -44,66 +44,47 @@
   margin-left: 15px;
   margin-right: 15px;
   cursor: pointer;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
 .header-tabs.active {
-  color: orange;
+  color: white;
   font-weight: bold;
 }
+
+.header-tabs.active::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: #267e94;
+  width: 0;
+  animation: borderExpand 1s forwards;
+  margin-top: 4px;
+}
+
+@keyframes borderExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 
 .register-login-buttons-container {
-  margin-right: 20px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-button {
-  height: 30px;
-  width: 90px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  outline: none;
-  background-color: #007bff;
-  color: white;
-  font-size: 13px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.login-button:hover {
-  background-color: #0069d9;
-}
-
-.register-button {
-  height: 30px;
-  width: 90px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  outline: none;
-  background-color: #ff9900;
-  color: white;
-  font-size: 13px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.register-button:hover {
-  background-color: #a86704;
+  flex-direction: column;
 }
 
 .profile-container {
   display: flex;
   position: relative;
+  outline: none;
 }
 
 .profile-card {
-  margin-right: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -112,16 +93,13 @@
   outline: none;
   height: 50px;
   width: 100px;
+  margin-right: 10px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  background-color: white;
+  background-color: #267e94;
   box-shadow: 0px 0px 25px -2px rgba(0, 0, 0, 0.75);
-}
-
-.profile-card:hover {
-  background-color: whitesmoke;
 }
 
 .profile-button {
@@ -153,8 +131,14 @@
   right: 0;
   transform: translate(-10%, -55%);
   z-index: 1001;
-  margin-top: 25vh;
+  margin-top: 37vh;
   width: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-dropdown {
+    margin-top: 32vh;
+  }
 }
 
 .dropdown-list-container {
@@ -182,13 +166,8 @@
   margin-right: 10px;
   height: 20px;
   width: 20px;
+  color: white;
 }
-
-/* .model-content {
-  padding: 20px;
-  box-shadow: 0px 0px 25px -2px rgba(0, 0, 0, 0.75);
-  width: 30vw;
-} */
 
 .close-button-container {
   display: flex;
@@ -281,7 +260,4 @@
   .login-model-content {
     width: 70%;
   }
-  /* .register-login-buttons-container {
-    display: none;
-  } */
 }

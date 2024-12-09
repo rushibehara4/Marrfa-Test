@@ -3,6 +3,8 @@ import "./home.css";
 
 import Swal from "sweetalert2";
 
+import { NavLink } from "react-router-dom";
+
 import { FaSearch } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 
@@ -11,13 +13,7 @@ import Footer from "../Footer/footer";
 
 class Home extends React.Component {
   state = {
-    isCheckIn: false,
-    checkInDate: "",
-    isCheckOut: false,
-    checkOutDate: "",
-    isSearching: false,
     searchDestination: "",
-    guestIntrestsVisible: false,
     cities: [
       {
         cityName: "Meppadi, India",
@@ -317,56 +313,6 @@ class Home extends React.Component {
         perNightCharges: "7321",
       },
     ],
-    formData: {
-      interests: "",
-      hobbies: "",
-      smoker: "",
-      age: "",
-      personalStory: "",
-    },
-  };
-
-  componentDidMount() {
-    const storedData = localStorage.getItem("profileData");
-    if (storedData) {
-      this.setState({ formData: JSON.parse(storedData) });
-    }
-  }
-
-  alertCheckIn = async () => {
-    const { value: checkInDate } = await Swal.fire({
-      title: "select checkin date",
-      input: "date",
-      didOpen: () => {
-        const today = new Date().toISOString();
-        Swal.getInput().min = today.split("T")[0];
-      },
-    });
-    if (checkInDate) {
-      Swal.fire("Checkin date", checkInDate);
-      this.setState({ checkInDate: checkInDate });
-    }
-    this.setState((prevState) => ({
-      isCheckIn: !prevState.isCheckIn,
-    }));
-  };
-
-  alertCheckOut = async () => {
-    const { value: checkOutDate } = await Swal.fire({
-      title: "select departure date",
-      input: "date",
-      didOpen: () => {
-        const today = new Date().toISOString();
-        Swal.getInput().min = today.split("T")[0];
-      },
-    });
-    if (checkOutDate) {
-      Swal.fire("Departure date", checkOutDate);
-      this.setState({ checkOutDate: checkOutDate });
-    }
-    this.setState((prevState) => ({
-      isCheckOut: !prevState.isCheckOut,
-    }));
   };
 
   alertSearchDestination = () => {
@@ -379,81 +325,39 @@ class Home extends React.Component {
     this.setState({ searchDestination: event.target.value });
   };
 
-  toggleAddGuest = () => {
-    this.setState((prevState) => ({
-      guestIntrestsVisible: !prevState.guestIntrestsVisible,
-    }));
-  };
-
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    this.setState((prevState) => ({
-      formData: {
-        ...prevState.formData,
-        [name]: value,
-      },
-    }));
-  };
-
-  handleSaveProfile = () => {
-    localStorage.setItem("profileData", JSON.stringify(this.state.formData));
-    this.setState({ guestIntrestsVisible: false });
-  };
-
-  handleEditProfile = () => {
-    const storedData = localStorage.getItem("profileData");
-    if (storedData) {
-      this.setState({ formData: JSON.parse(storedData) });
-    }
-    this.setState({ guestIntrestsVisible: false });
-  };
-
-  handleGuestCheckinClose = () => {
-    this.setState({ guestIntrestsVisible: false });
-  };
-
   onBookHotel = (city) => {
     const { cityName, availableDates, perNightCharges } = city;
 
-  Swal.fire({
-    title: `${cityName}`,
-    html: `
+    Swal.fire({
+      title: `${cityName}`,
+      html: `
       <p>Available Dates: ${availableDates}</p>
       <p>Night Charge: ${perNightCharges}</p>
     `,
-    icon: 'info',
-    confirmButtonText: 'Book Now',
-    showCancelButton: true,
-    cancelButtonText: 'Cancel',
-    reverseButtons: true
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire({
-        title: 'Success!',
-        text: 'Booking confirmed!',
-        icon: 'success'
-      });
-    } else if (result.dismiss === Swal.DismissReason.cancel) {
-      Swal.fire({
-        title: 'Cancelled',
-        text: 'Booking cancelled',
-        icon: 'error'
-      });
-    }
-  });
-  }
+      icon: "info",
+      confirmButtonText: "Book Now",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Success!",
+          text: "Booking confirmed!",
+          icon: "success",
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire({
+          title: "Cancelled",
+          text: "Booking cancelled",
+          icon: "error",
+        });
+      }
+    });
+  };
 
   render() {
-    const {
-      isCheckIn,
-      checkInDate,
-      isCheckOut,
-      checkOutDate,
-      cities,
-      searchDestination,
-      guestIntrestsVisible,
-      formData,
-    } = this.state;
+    const { cities, searchDestination } = this.state;
 
     const filteredCities = cities.filter((city) =>
       city.cityName.toLowerCase().includes(searchDestination.toLowerCase())
@@ -467,136 +371,34 @@ class Home extends React.Component {
         <div className="home-continaer">
           <div className="search-function">
             <div className="search-container">
-              <div className="checkin-container">
-                <button className="checkin-button" onClick={this.alertCheckIn}>
-                  <p className="checkin-heading">Check In</p>
-                  <p className="checkin-para">
-                    {isCheckIn ? checkInDate : "Add Date"}
-                  </p>
-                </button>
-              </div>
-              <div className="vertical-line"></div>
-              <div className="checkin-container">
-                <button className="checkin-button" onClick={this.alertCheckOut}>
-                  <p className="checkin-heading">Check Out</p>
-                  <p className="checkin-para">
-                    {isCheckOut ? checkOutDate : "Add Date"}
-                  </p>
-                </button>
-              </div>
-              <div className="vertical-line"></div>
               <div className="destination-checkin-container">
                 <button
                   className="checkin-button"
                   onClick={this.alertSearchDestination}
                 >
-                  <p className="checkin-heading">Where</p>
                   <input
                     type="search"
                     placeholder="Destination"
                     name="destination"
+                    autoComplete="off"
                     className="search-destination-input"
                     onChange={this.onSearchDestination}
                   />
                 </button>
-              </div>
-              <div className="vertical-line"></div>
-              <div className="guest-checkin-container">
-                <div
-                  className="guest-checkin-button"
-                  onClick={this.toggleAddGuest}
-                >
-                  <div className="guest-checkin-content">
-                    <p className="checkin-heading">Who</p>
-                    <p className="checkin-para">Add Guest</p>
-                  </div>
-                  <button className="search-icon-container">
-                    <FaSearch className="search-icon" />
-                  </button>
-                </div>
+                <button className="search-icon-container">
+                  <FaSearch className="search-icon" />
+                </button>
               </div>
             </div>
           </div>
-          {guestIntrestsVisible && (
-            <div className="guest-container">
-              <div className="guest-card">
-                <form>
-                  <div className="guest-intrest-inputs">
-                    <label>Interests:</label>
-                    <input
-                      type="text"
-                      name="interests"
-                      value={formData.interests}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <div className="guest-intrest-inputs">
-                    <label>Hobbies:</label>
-                    <input
-                      type="text"
-                      name="hobbies"
-                      value={formData.hobbies}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <div className="guest-intrest-inputs">
-                    <label>Smoker:</label>
-                    <input
-                      type="text"
-                      name="smoker"
-                      value={formData.smoker}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <div className="guest-intrest-inputs">
-                    <label>Age:</label>
-                    <input
-                      type="text"
-                      name="age"
-                      value={formData.age}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <div className="guest-intrest-inputs">
-                    <label>Personal Story:</label>
-                    <textarea
-                      name="personalStory"
-                      value={formData.personalStory}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                  <div>
-                    <button
-                      className="guest-intrest-button"
-                      type="button"
-                      onClick={this.handleSaveProfile}
-                    >
-                      Save Profile
-                    </button>
-                    <button
-                      className="guest-intrest-button"
-                      type="button"
-                      onClick={this.handleEditProfile}
-                    >
-                      Edit Profile
-                    </button>
-                    <button
-                      className="guest-intrest-button"
-                      type="button"
-                      onClick={this.handleGuestCheckinClose}
-                    >
-                      Close
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          )}
-          <hr />
           <div className="cities-container">
             <ul className="cities-list-container">
               {filteredCities.map((city, index) => (
-                <li key={index} className="city-list-card" onClick={() => this.onBookHotel(city)}>
+                <li
+                  key={index}
+                  className="city-list-card"
+                  onClick={() => this.onBookHotel(city)}
+                >
                   <div className="city-image-container">
                     <img
                       src={city.cityImage}
@@ -613,7 +415,8 @@ class Home extends React.Component {
                   </div>
                   <div className="checking-avaliability-container">
                     <p className="kilometers-away">
-                      {city.kilometersAway} Kilometers away
+                      {city.kilometersAway}{" "}
+                      <span className="km-away">Kilometers away</span>
                     </p>
                     <p className="dates-availabel">{city.availableDates}</p>
                     <p className="night-rupees">
@@ -623,6 +426,22 @@ class Home extends React.Component {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+        <div className="mobile-tabs">
+          <div className="mobile-tab-container">
+            <NavLink to="/" className="mobile-header-tabs">
+              Welcome
+            </NavLink>
+            <NavLink to="/safety" className="mobile-header-tabs">
+              Safety
+            </NavLink>
+            <NavLink to="/adventure" className="mobile-header-tabs">
+              Adventure
+            </NavLink>
+            <NavLink to="/community" className="mobile-header-tabs">
+              Community
+            </NavLink>
           </div>
         </div>
         <div className="footer-component">

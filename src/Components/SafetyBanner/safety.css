@@ -3,9 +3,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 76vh;
+    padding: 20px;
 }
-
 
 .safety-banner-card {
     display: flex;
@@ -13,13 +12,12 @@
     justify-content: center;
     align-items: flex-end;
     background-color: aquamarine;
-    height: 60vh;
     background-image: url("vecteezy_vector-banner-place-for-text-a-group-of-beautiful-women-of_.jpg");
     background-size: cover;
-    width: 90%;
-    padding-right: 30px;
     border-radius: 30px;
     box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.75);
+    width: 100%;
+    height: 60vh;
 }
 
 .safety-button {
@@ -31,6 +29,7 @@
     color: black;
     font-weight: bold;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .safety-button:hover {
@@ -42,14 +41,25 @@
 .header-tab-bottom-card {
     background-color: white;
     padding: 10px;
-    width: 90vh;
+    width: 70%;
     box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
     border-radius: 25px;
     position: absolute;
-    top: 67vh;
     margin-bottom: 20px;
     z-index: 1;
+    top: 80vh;
 }
+
+.safety-heading {
+    font-size: 35px;
+    padding: 0;margin: 0;
+    margin-right: 20px;
+}
+
+.safety-para {
+    margin-right: 20px;
+}
+
 
 .tabs-content-container {
     display: flex;
@@ -74,4 +84,60 @@
     margin-bottom: 15px;
     height: 30px;
     width: 30px;
+}
+
+.mobile-heading {
+    display: none;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .safety-banner-card {
+        background: none;
+        background-color: rgb(222, 139, 71);
+        height: 40vh;
+        width: 80%;
+        padding: 20px;
+    }
+
+    .mobile-heading {
+        display: block;
+        color: #0d1e2c;
+    }
+
+    .safety-heading {
+        font-size: 20px;
+        margin-right: 0px;
+    }
+
+    .safety-para {
+        margin-right: 0px;
+    }
+
+    .safety-button {
+        margin-right: 0px;
+    }
+
+    .tabs-content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: -40px;
+    }
+
+    .header-tab-bottom-card {
+        top: 70vh;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #0d1e2c, #204a56, #0d1e2c);
+    }
+
+    .card-icon-bottom {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }

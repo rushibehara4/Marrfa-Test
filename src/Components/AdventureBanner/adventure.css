@@ -3,28 +3,24 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 76vh;
+    padding: 20px;
 }
 
-
-.adeventure-banner-card {
+.adeventure-banner-card{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     background-color: aquamarine;
-    height: 60vh;
     background-image: url("vecteezy_scene-with-people-climbing-rocky-moutain_6154187.jpg");
     background-size: cover;
-    width: 90%;
-    padding-right: 30px;
     border-radius: 30px;
     box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.75);
-    color: black;
-    padding-left: 20px;
+    width: 100%;
+    height: 60vh;
 }
 
-.adventure-button {
+.safety-button {
     padding: 15px;
     text-align: center;
     border-radius: 30px;
@@ -33,10 +29,105 @@
     color: black;
     font-weight: bold;
     cursor: pointer;
+    margin-right: 20px;
 }
 
-.adventure-button:hover {
+.safety-button:hover {
     color: white;
     background-color: black;
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+.header-tab-bottom-card {
+    background-color: white;
+    padding: 10px;
+    width: 70%;
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+    border-radius: 25px;
+    position: absolute;
+    margin-bottom: 20px;
+    z-index: 1;
+    top: 80vh;
+}
+
+.safety-heading {
+    font-size: 35px;
+    padding: 0;margin: 0;
+    margin-right: 20px;
+}
+
+.safety-para {
+    margin-right: 20px;
+}
+
+
+.tabs-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.card-icon-bottom {
+    list-style-type: none;
+    color: rgb(255, 149, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.botton-icons {
+    margin-bottom: 15px;
+    height: 30px;
+    width: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .adeventure-banner-card {
+        background: none;
+        background-color: rgb(222, 139, 71);
+        height: 40vh;
+        width: 80%;
+        padding: 20px;
+    }
+
+    .safety-heading {
+        font-size: 20px;
+        margin-right: 0px;
+    }
+
+    .safety-para {
+        margin-right: 0px;
+    }
+
+    .safety-button {
+        margin-right: 0px;
+    }
+
+    .tabs-content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: -40px;
+    }
+
+    .header-tab-bottom-card {
+        top: 70vh;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #0d1e2c, #204a56, #0d1e2c);
+    }
+
+    .card-icon-bottom {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }
