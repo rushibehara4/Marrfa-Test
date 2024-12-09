@@ -235,6 +235,20 @@
   display: none;
 }
 
+.no-cities {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found {
+  color: rgb(238, 98, 98);
+  font-weight: bold;
+  margin-top: -255px;
+}
+
 @media screen and (max-width: 767px) {
   .footer-component {
     display: none;

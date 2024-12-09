@@ -393,38 +393,44 @@ class Home extends React.Component {
           </div>
           <div className="cities-container">
             <ul className="cities-list-container">
-              {filteredCities.map((city, index) => (
-                <li
-                  key={index}
-                  className="city-list-card"
-                  onClick={() => this.onBookHotel(city)}
-                >
-                  <div className="city-image-container">
-                    <img
-                      src={city.cityImage}
-                      alt="city-img"
-                      className="city-image"
-                    />
-                  </div>
-                  <div className="city-heading-rating-container">
-                    <h1 className="city-heading">{city.cityName}</h1>
-                    <h1 className="city-rating">
-                      <FaStar className="rating-icon" />
-                      {city.rating}
-                    </h1>
-                  </div>
-                  <div className="checking-avaliability-container">
-                    <p className="kilometers-away">
-                      {city.kilometersAway}{" "}
-                      <span className="km-away">Kilometers away</span>
-                    </p>
-                    <p className="dates-availabel">{city.availableDates}</p>
-                    <p className="night-rupees">
-                      <b className="rupee">{city.perNightCharges}</b> night
-                    </p>
-                  </div>
-                </li>
-              ))}
+              {filteredCities.length > 0 ? (
+                filteredCities.map((city, index) => (
+                  <li
+                    key={index}
+                    className="city-list-card"
+                    onClick={() => this.onBookHotel(city)}
+                  >
+                    <div className="city-image-container">
+                      <img
+                        src={city.cityImage}
+                        alt="city-img"
+                        className="city-image"
+                      />
+                    </div>
+                    <div className="city-heading-rating-container">
+                      <h1 className="city-heading">{city.cityName}</h1>
+                      <h1 className="city-rating">
+                        <FaStar className="rating-icon" />
+                        {city.rating}
+                      </h1>
+                    </div>
+                    <div className="checking-avaliability-container">
+                      <p className="kilometers-away">
+                        {city.kilometersAway}{" "}
+                        <span className="km-away">Kilometers away</span>
+                      </p>
+                      <p className="dates-availabel">{city.availableDates}</p>
+                      <p className="night-rupees">
+                        <b className="rupee">{city.perNightCharges}</b> night
+                      </p>
+                    </div>
+                  </li>
+                ))
+              ) : (
+                <div className="no-cities">
+                  <h3 className="not-found">No cities found...</h3>
+                </div>
+              )}
             </ul>
           </div>
         </div>
